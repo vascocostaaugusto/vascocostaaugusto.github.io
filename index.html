@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Augusto Vasco Costa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #fafaf8;
+    --text: #1a1a18;
+    --muted: #888880;
+    --border: #e2e2de;
+    --hover-bg: #f0f0ec;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'EB Garamond', Georgia, serif;
+    min-height: 100vh;
+  }
+
+  /* ── PAGE SYSTEM ── */
+  .page { display: none; min-height: 100vh; }
+  .page.active { display: block; }
+
+  /* ── SHARED LAYOUT ── */
+  .container {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+
+  /* ── HOME PAGE ── */
+  #home .name {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 4rem;
+  }
+
+  #home .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .link-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--border);
+    padding: 1.15rem 0;
+    cursor: pointer;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1.25rem;
+    color: var(--text);
+    transition: padding-left 0.2s ease;
+    position: relative;
+  }
+
+  .link-btn:last-child { border-bottom: 1px solid var(--border); }
+
+  .link-btn::after {
+    content: '→';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .link-btn:hover {
+    padding-left: 0.5rem;
+  }
+
+  .link-btn:hover::after {
+    opacity: 1;
+  }
+
+  /* ── INNER PAGES ── */
+  .inner-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+  }
+
+  .inner-header .name {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .inner-header .name:hover { color: var(--text); }
+
+  .back-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    letter-spacing: 0.04em;
+  }
+
+  .back-btn:hover { color: var(--text); }
+
+  .inner-title {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .inner-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #3a3a38;
+  }
+
+  .inner-body p { margin-bottom: 1.4rem; }
+  .inner-body p:last-child { margin-bottom: 0; }
+
+  .placeholder {
+    color: var(--muted);
+    font-style: italic;
+    border-left: 2px solid var(--border);
+    padding-left: 1rem;
+  }
+
+  /* ── FADE IN ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .page.active .container {
+    animation: fadeUp 0.3s ease forwards;
+  }
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<div class="page active" id="home">
+  <div class="container">
+    <p class="name">Augusto Vasco Costa</p>
+    <nav class="links">
+      <button class="link-btn" onclick="navigate('vc')">Learnings from my VC internship</button>
+      <button class="link-btn" onclick="navigate('projects')">Small side projects</button>
+    </nav>
+  </div>
+</div>
+
+<!-- VC INTERNSHIP PAGE -->
+<div class="page" id="vc">
+  <div class="container">
+    <div class="inner-header">
+      <span class="name" onclick="navigate('home')">Augusto Vasco Costa</span>
+      <button class="back-btn" onclick="navigate('home')">← back</button>
+    </div>
+    <h1 class="inner-title">Learnings from my VC internship</h1>
+    <div class="inner-body">
+      <p class="placeholder">Your text goes here. Paste it in and I'll format it for you.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SIDE PROJECTS PAGE -->
+<div class="page" id="projects">
+  <div class="container">
+    <div class="inner-header">
+      <span class="name" onclick="navigate('home')">Augusto Vasco Costa</span>
+      <button class="back-btn" onclick="navigate('home')">← back</button>
+    </div>
+    <h1 class="inner-title">Small side projects</h1>
+    <div class="inner-body">
+      <p class="placeholder">Your text goes here. Paste it in and I'll format it for you.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function navigate(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
