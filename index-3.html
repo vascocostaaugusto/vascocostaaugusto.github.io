@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Augusto Vasco Costa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg: #f8f7f4; --text: #18180f; --muted: #8a8a7a; --border: #e0dfd8; --link: #2d5be3; }
+  body { background: var(--bg); color: var(--text); font-family: 'Instrument Sans', sans-serif; min-height: 100vh; }
+  .page { display: none; min-height: 100vh; }
+  .page.active { display: block; }
+  .container { max-width: 600px; margin: 0 auto; padding: 4.5rem 2rem 7rem; }
+
+  #home .name { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 1.6rem; letter-spacing: -0.02em; margin-bottom: 0.4rem; line-height: 1; }
+  #home .linkedin { display: inline-block; font-size: 12px; color: var(--muted); text-decoration: none; margin-bottom: 3.5rem; letter-spacing: 0.02em; }
+  #home .linkedin:hover { color: var(--link); }
+  .links { display: flex; flex-direction: column; }
+  .link-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; text-align: left; background: none; border: none; border-top: 1px solid var(--border); padding: 1.2rem 0; cursor: pointer; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.15rem; color: var(--text); letter-spacing: -0.01em; transition: color 0.15s; }
+  .link-btn:last-child { border-bottom: 1px solid var(--border); }
+  .link-btn .arrow { font-family: 'Instrument Sans', sans-serif; font-size: 0.85rem; color: var(--muted); opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
+  .link-btn:hover { color: var(--link); }
+  .link-btn:hover .arrow { opacity: 1; transform: translateX(0); }
+
+  .inner-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+  .home-link { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 1rem; color: var(--text); cursor: pointer; text-decoration: none; letter-spacing: -0.01em; }
+  .home-link:hover { color: var(--link); }
+  .back-btn { font-size: 12px; background: none; border: none; color: var(--muted); cursor: pointer; letter-spacing: 0.03em; }
+  .back-btn:hover { color: var(--text); }
+  .inner-title { font-family: 'Fraunces', Georgia, serif; font-size: 1.75rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 2.5rem; }
+
+  .body-text { font-size: 1rem; line-height: 1.85; color: #2e2e24; }
+  .body-text p { margin-bottom: 1.4rem; }
+  .body-text p:last-child { margin-bottom: 0; }
+  .body-text a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+  .body-text a:hover { opacity: 0.75; }
+  .body-text h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.1rem; margin: 2.2rem 0 0.8rem; letter-spacing: -0.01em; }
+  .body-text ul { margin: 0.5rem 0 1.4rem 1.2rem; }
+  .body-text ul li { margin-bottom: 0.35rem; }
+
+  .project-item { border-top: 1px solid var(--border); padding: 1.4rem 0; }
+  .project-item:last-child { border-bottom: 1px solid var(--border); }
+  .project-name { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.05rem; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+  .project-name a { color: var(--text); text-decoration: none; }
+  .project-name a:hover { color: var(--link); }
+  .project-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .page.active .container { animation: fadeUp 0.25s ease forwards; }
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<div class="page active" id="home">
+  <div class="container">
+    <p class="name">Augusto Vasco Costa</p>
+    <a class="linkedin" href="https://www.linkedin.com/in/augusto-vasco-costa-114643187/" target="_blank">LinkedIn ↗</a>
+    <nav class="links">
+      <button class="link-btn" onclick="navigate('vc')">Learnings from my VC internship <span class="arrow">→</span></button>
+      <button class="link-btn" onclick="navigate('projects')">Small side projects <span class="arrow">→</span></button>
+    </nav>
+  </div>
+</div>
+
+<!-- VC PAGE -->
+<div class="page" id="vc">
+  <div class="container">
+    <div class="inner-header">
+      <span class="home-link" onclick="navigate('home')">Augusto Vasco Costa</span>
+      <button class="back-btn" onclick="navigate('home')">← back</button>
+    </div>
+    <h1 class="inner-title">Letter of a young Intern :)</h1>
+    <div class="body-text">
+
+      <h2>1. Intro</h2>
+      <p>Hey there! If you are reading this you are probably beginning your VC experience at <a href="https://www.shilling.vc" target="_blank">Shilling</a>. Or elsewhere if this document actually becomes useful to onboard and educate young people who are joining this awesome ecosystem.</p>
+      <p>Basically the idea to start this document began as I understood I was accidentally storing a crazy amount of posts/articles or any kind of content on VC and startups, there is so much to read out there… And as I was doing this I thought that it could be interesting to aggregate and structure these materials. The main goal is to accelerate one's arrival to this job being a source of centralized knowledge for educational and research purposes.</p>
+      <p>The types of tools and content are very diverse and there are a lot of categories. But, I will separate them into two: VC content — how to invest, how does VC work, how to build conviction and much more. And the second category is startup content. I think it really is important to understand startups and how they work and get to know their components, constraints and limitations before starting to invest in them. On top of that it will be great to have a database from which you can share materials with the founders you are talking with, and try to add as much value as possible to them, creating a better relationship with them. In my opinion one of the most rewarding parts of the job.</p>
+      <p>Both categories were designed with this dual-use: education purpose for an upcoming VC and tools to help founders in their crazy journey.</p>
+
+      <h2>2. VC 101</h2>
+      <p>In this section, I will start showcasing the basic concepts of VC and its finance component. And will add a lot of articles and texts on different types of investors and their rationale. You'll find the most technical stuff, like valuations, how SAFEs and term-sheets work up to more subject stuff like founders psychology and how to assess a future decacorn founder.</p>
+      <p>Everything in <a href="https://www.generalist.com" target="_blank">The Generalist</a> is worth a read. (<a href="https://www.generalist.com/p/hummingbird" target="_blank">1</a>; <a href="https://www.generalist.com/p/founders-fund-1" target="_blank">2</a>)</p>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=oULoamyhycA" target="_blank">A Master Class in Venture Capital</a></li>
+        <li><a href="https://www.linkedin.com/posts/rubendominguezibar_term-sheets-dont-kill-startups-misunderstanding-activity-7360301435218989057-sz1W/" target="_blank">Term Sheet Glossary for Founders</a></li>
+        <li><a href="https://medium.com/market-one-capital-corner/investment-processes-across-vcs-566673dc15b7" target="_blank">Investment Processes Across VCs</a></li>
+        <li><a href="https://www.linkedin.com/posts/sahilsr_startups-vc-jobs-activity-7353319717400412161-sZx6/" target="_blank">All-In-One Resources For Aspiring Venture Capitalists</a></li>
+        <li><a href="https://www.linkedin.com/posts/guillermoflor_sequoias-leaked-youtube-investment-memo-activity-7357455146601082882-81ao/" target="_blank">Sequoia's Leaked Investment Memo on YouTube</a></li>
+        <li><a href="https://www.linkedin.com/posts/sahilsr_venture-capital-metrics-cheat-sheet-activity-7350062924045955073-ppyN/" target="_blank">Venture Capital Fund Metrics</a></li>
+        <li><a href="https://99d.substack.com/p/legibility-and-liquidity" target="_blank">Legibility and Liquidity</a></li>
+        <li><a href="https://medium.com/sequoia-capital/the-market-curve-44097b626f6d" target="_blank">The Market Curve</a></li>
+        <li><a href="https://www.linkedin.com/posts/acremades_how-vcs-evaluate-startups-activity-7353529290451210241-VcXB/" target="_blank">How VCs actually evaluate your startup</a></li>
+        <li><a href="https://www.linkedin.com/posts/guillermoflor_most-startups-fail-because-they-build-products-activity-7342506376809603076-bpar/" target="_blank">Building takeaways from Guillermo Flor</a></li>
+        <li><a href="https://ai-2027.com" target="_blank">AI 2027</a></li>
+        <li><a href="https://www.bvp.com/memos/shopify" target="_blank">Shopify Series A Memo</a></li>
+        <li><a href="https://www.bvp.com/atlas/the-rule-of-x" target="_blank">The Rule of X</a></li>
+        <li><a href="https://techcrunch.com/2016/11/28/how-to-estimate-a-companys-health-without-really-trying/" target="_blank">How to estimate a company's health without really trying</a></li>
+        <li><a href="https://clemnt.co/online-identity-software-deep-dive/" target="_blank">Online Identity Software Deep Dive</a></li>
+        <li><a href="https://www.mostlymetrics.com/p/a-total-addressable-market-masterclass" target="_blank">A TAM MasterClass</a></li>
+        <li><a href="https://bothsidesofthetable.com/should-startups-care-about-profitability-828250a34a7d" target="_blank">Should Startups Care About Profitability?</a></li>
+        <li><a href="https://www.ycombinator.com/library/6m-understanding-safes-and-priced-equity-rounds" target="_blank">Understanding SAFEs and priced equity rounds</a></li>
+        <li><a href="https://www.ycombinator.com/library/8F-modern-startup-funding" target="_blank">Modern Startup Funding</a></li>
+        <li><a href="https://www.ycombinator.com/library/89-how-to-succeed-with-a-startup" target="_blank">How to succeed with a startup</a></li>
+        <li><a href="https://seedcamp.com/views/welcome-to-seedcamp-vi/" target="_blank">Seedcamp Pitch Deck</a></li>
+        <li><a href="https://docs.google.com/document/d/1gjBKNbV3N1mr8wkROdPU5bpBoiE9zDzOKRkpdY_Q66A/edit" target="_blank">Memo Point Nine (tier-1 European VC)</a></li>
+        <li><a href="https://www.bvp.com/memos" target="_blank">Memos Bessemer (tier-1 VC USA)</a></li>
+        <li><a href="https://medium.com/@jfreester/series-a-ready-for-it-adc4a060a9b2" target="_blank">Series A… Ready for it?</a></li>
+        <li><a href="https://ventureupward.substack.com/p/valuation-matters" target="_blank">Valuation Matters</a></li>
+        <li><a href="https://cherry.vc/articles/cherrys-investment-theses-on-ai" target="_blank">Cherry's Investment Theses on AI</a></li>
+        <li><a href="https://vcmastery.substack.com/p/generalist-vs-specialist-vcs-data-from-4-000-firms-and-10-000-investments-85b974146834" target="_blank">Generalist vs. Specialist VCs</a></li>
+        <li><a href="https://www.nfx.com/post/3-person-unicorn-startup" target="_blank">3 Person Unicorn Startup</a></li>
+        <li><a href="https://sacks.substack.com/p/the-burn-multiple-51a7e43cb200" target="_blank">Burn Multiple</a></li>
+        <li><a href="https://www.klipfolio.com/resources/kpi-examples/saas/magic-number" target="_blank">Magic Number</a></li>
+      </ul>
+
+      <h2>3. Startups 101</h2>
+      <p>Here we will explore all the different components of having an early-stage startup. And have content that ideally will help a future venture capitalist to understand these companies and also ideally help founders showcasing some examples and giving them context on how successful companies made it.</p>
+      <p>Here at Shilling we already have a great source of information to our portfolio founders, I really recommend checking this portal out as it has very specific advice to very specific components of building a startup. See <a href="https://founders.shilling.vc/handbook" target="_blank">Founders' Handbook here</a>.</p>
+      <ul>
+        <li><a href="https://www.jaakkoj.com/blog/graham" target="_blank">Paul Graham 101</a>, <a href="https://www.paulgraham.com" target="_blank">Paul Graham's Blog</a></li>
+        <li><a href="https://docs.google.com/document/d/1QFR3scxuGSY848qA7JDYEHI2uVB7f5nzIj_jIH7ihZQ/edit" target="_blank">Startup Principles</a></li>
+        <li><a href="https://www.youtube.com/watch?v=v1SDR-7zoVc" target="_blank">Identifying Talent by Keith Rabois</a></li>
+        <li><a href="https://www.linkedin.com/posts/rubendominguezibar_paul-grahams-18-mistakes-that-kill-startups-activity-7360373120697876483-6NyB/" target="_blank">18 Mistakes that kill Startups</a></li>
+        <li><a href="https://www.linkedin.com/posts/sahilsr_startups-fundraising-founders-activity-7353045713766756354-qCl1/" target="_blank">The Ultimate Fundraising Toolkit for Founders</a></li>
+        <li><a href="https://www.linkedin.com/posts/acremades_pitch-to-investors-activity-7353846366973874177-vZKO/" target="_blank">How to pitch to investors — Without sounding like everyone else</a></li>
+        <li><a href="https://www.linkedin.com/posts/rubendominguezibar_the-perfect-pitch-deck-activity-7350426344431697920-AXDb/" target="_blank">The perfect pitch deck</a> | <a href="https://www.linkedin.com/posts/acremades_creating-the-perfect-pitch-activity-7349905400193867776-DZiw/" target="_blank">Creating the perfect pitch deck</a></li>
+        <li><a href="https://www.linkedin.com/posts/rubendominguezibar_if-youre-building-a-startup-these-12-templates-activity-7353412210502549505-E_5t/" target="_blank">Templates that will save you months of work if you are building a startup</a></li>
+        <li><a href="https://www.linkedin.com/posts/ivanlandabaso_ai-startups-founder-activity-7352949433501646848-JA2N/" target="_blank">Startup leadership</a></li>
+        <li><a href="https://grahamduncan.blog/whats-going-on-here/" target="_blank">What is going on here, with this human?</a></li>
+        <li><a href="https://blakemasters.tumblr.com/peter-thiels-cs183-startup" target="_blank">Startup — Peter Thiel Class Notes</a></li>
+        <li><a href="https://www.linkedin.com/posts/sahilsr_marc-andreessens-guide-to-finding-product-market-activity-7342448588205031426-UBwM/" target="_blank">Marc Andreessen's Guide to Finding Product-Market Fit</a></li>
+        <li><a href="https://www.linkedin.com/posts/guillermoflor_the-ultimate-list-of-resources-to-raise-capital-activity-7331605881349976064-L149/" target="_blank">The Ultimate list of resources to Raise Capital</a></li>
+        <li><a href="https://quantumlightcapital.com/playbooks-home" target="_blank">Quantum Light Capital — Playbook Library</a></li>
+        <li><a href="https://mhdempsey.substack.com/p/the-first-40-months" target="_blank">The First 40 Months</a></li>
+        <li><a href="https://www.linkedin.com/posts/acremades_top-20-strategy-frameworks-activity-7325459355686920193-pc5N/" target="_blank">Top 20 Strategy Frameworks</a></li>
+        <li><a href="https://entreecap.com/blog/navigating-your-series-a-funding-in-todays-market" target="_blank">Navigating your Series A funding in today's market (2023..)</a></li>
+        <li><a href="https://www.lennysnewsletter.com/p/product-led-marketing" target="_blank">Product-Led Marketing</a></li>
+        <li><a href="https://creandum.com/stories/pricing-that-doesnt-fit-the-bill/" target="_blank">Pricing that doesn't fill the bill</a></li>
+        <li><a href="https://www.lennysnewsletter.com/p/how-to-win-your-first-10-b2b-customers" target="_blank">How to find and win your first 10 B2B customers</a></li>
+        <li><a href="https://www.growthunhinged.com/p/pleos-story-of-80-yoy-growth-on-the" target="_blank">Pleo's story of 80% YoY growth on the path to cross €100m ARR</a></li>
+        <li><a href="https://carta.com/uk/en/blog/seed-vc-funding-2023/" target="_blank">The state of seed in 2023</a></li>
+      </ul>
+
+      <h2>4. Advice</h2>
+      <p>There are many things I would suggest to someone starting their internship. First and foremost, one of the most important factors for growing within the team is context. Context has many components, but a key one is understanding past investments. I would make the effort to learn about every portfolio company: what they do, why we invested, and where they stand today. It's important to understand not only why some companies failed, but also which ones became the highlights of the portfolio. Context is crucial because, in many discussions, the team will reference these past investments or compare new opportunities to them. In terms of context, I'd also include getting to know the major startups, unicorns, and VC firms, their stories, business models, and highlights.</p>
+      <p>Adding to this, one lesson I learned later in the internship was the importance of having context on the deals that are currently moving forward. I found it extremely useful to stay up to speed on all active deals, join some of the calls when possible, and research the space. Doing so helps you add value to discussions and better understand the decision process. There's no comparison between joining a discussion knowing nothing and joining after spending 30/45 minutes researching, where you've already begun forming your own line of thought.</p>
+      <p>I don't think there's any other industry where staying up to date is more important than in VC. An investor needs to be on top of new trends and technologies launching every week: What new feature did OpenAI release this week, and how is it impacting the 1,000 agentic AI startups out there? But also, are there any major tailwinds creating opportunities in otherwise stable industries (e.g. defense in recent years)? And finally, how are the financial markets looking? How is liquidity across different private sectors? At what multiples are public tech companies trading, and why?</p>
+      <p>For product launches, I like to check the <a href="https://www.producthunt.com" target="_blank">Product Hunt</a> website and subscribe to their newsletter. For tailwinds and macro trends, I recommend listening to lots of podcasts: the Financial Times has a super useful daily 15-minute one, and one of my favorites is the 20VC podcast with Harry Stebbings. To finish, for numbers and financials, the Data-Driven VC newsletter is excellent — the intern email is subscribed, and I recommend reading every issue.</p>
+      <p>The fastest way to learn and grow as a VC is to talk to a lot of people: both founders and investors. If I were to do it all over again, I would try to book 20 short meetings (30 minutes each) every week. This makes your learning curve grow exponentially. Don't hesitate to cold-message anyone you find interesting.</p>
+      <p>Even taking just 5–10 minutes to prepare before each meeting makes a huge difference, not only for your own understanding but also for the other person, who will enjoy the conversation much more. And if you're speaking with a founder, showing that you've done your homework can even move you up their list of investors, as you come across as genuinely useful in the discussion.</p>
+      <p>I believe that if you see a huge number of deals, you'll eventually find something good. But the odds aren't great. A big part of this job is about increasing those odds, and that comes down to having better deal sources. This is where co-investors become really important. The conversion rates at each stage of the VC funnel are far higher when your deal flow comes through co-investors who can introduce you directly to founders, compared to just scanning startup lists from accelerators or relying on cold emails and LinkedIn inbounds.</p>
+      <p>To wrap it up on a broader note: I've heard this many times, and after this experience I really get it — being curious and challenging assumptions about how things have always been done is key. Don't be afraid to speak up and form opinions, there are no stupid questions. In many ways, the mindset of startup founders and VCs should be the same: question the status quo, look at problems from new angles, and push for better solutions instead of just accepting "this is how it's always been." For example you can stand out with things like: <a href="https://unicorns.pt/" target="_blank">unicorns.pt</a> made by <a href="https://www.linkedin.com/in/miguelpinho/" target="_blank">Miguel Pinho</a> from <a href="https://seedcamp.com" target="_blank">SeedCamp</a> (Tier-1 VC in Europe).</p>
+      <p>Of course, doing all of this takes time. But honestly, it's a pretty easy job to like, because every day you're learning, meeting smart people, and constantly being forced to think differently. Make the most out of a job that enables possibilities that can't be found anywhere else. You'll be exposed to smart and hard-working people. Enjoy it!</p>
+
+    </div>
+  </div>
+</div>
+
+<!-- SIDE PROJECTS PAGE -->
+<div class="page" id="projects">
+  <div class="container">
+    <div class="inner-header">
+      <span class="home-link" onclick="navigate('home')">Augusto Vasco Costa</span>
+      <button class="back-btn" onclick="navigate('home')">← back</button>
+    </div>
+    <h1 class="inner-title">Small side projects</h1>
+    <div class="body-text">
+      <p>I'm pretty active on <a href="https://lovable.dev" target="_blank">Lovable</a>. Currently building a lot of products.</p>
+    </div>
+    <div style="margin-top: 2rem;">
+      <div class="project-item">
+        <p class="project-name"><a href="https://iberianyc.lovable.app" target="_blank">Iberian YC ↗</a></p>
+        <p class="project-desc">The only database in the world focused on Portuguese and Spanish founders accepted in a YC batch.</p>
+      </div>
+      <div class="project-item">
+        <p class="project-name"><a href="https://internaltoolpm.lovable.app" target="_blank">Prime Meridian Internal Tool ↗</a></p>
+        <p class="project-desc">Built while briefly working for Prime Meridian, backed by General Catalyst.</p>
+      </div>
+      <div class="project-item">
+        <p class="project-name"><a href="https://azenhasiq.lovable.app" target="_blank">Restaurant Waste Tracker ↗</a></p>
+        <p class="project-desc">A friend had a very manual process in his restaurant to check for waste — comparing purchases versus theoretical consumption from sales invoices and actual consumption checking inventory variance. So I built this.</p>
+      </div>
+      <div class="project-item">
+        <p class="project-name"><a href="https://souchefai.lovable.app" target="_blank">SouChef AI ↗</a></p>
+        <p class="project-desc">My mother used to grocery shop every day and wasted a lot of time planning weekly meals. So I built this.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function navigate(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
